@@ -19,7 +19,6 @@ syntax: glob
 target
 tmp*
 dist
-test-output
 
 # other scm
 .svn
