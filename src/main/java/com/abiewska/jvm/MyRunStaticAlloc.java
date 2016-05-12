@@ -4,11 +4,11 @@ public class MyRunStaticAlloc implements Runnable {
 	public int thread;
 
 	@Override
-	public void run() {
-		long start = System.currentTimeMillis();
+	public void run() {		
 		int count = 0;
+		long start = System.currentTimeMillis();
 		while (System.currentTimeMillis() - start < 60000) {
-			MemoryEater.alloc(32);
+			MemoryEater.alloc(1);
 			count++;
 		}
 		System.out.println("W czasie 6000 milisekund wykonano " + count

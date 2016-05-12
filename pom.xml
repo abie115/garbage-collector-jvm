@@ -21,17 +21,15 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.4.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
 				<configuration>
-					<executable>java</executable>
-					<arguments>
-					  <argument>-XX:+UseConcMarkSweepGC</argument>
-						<!-- <argument>‐XX:+UseParallelOldGC</argument>-->
-						
-						<!-- <argument>-XX:+UseG1GC</argument> -->
-						<argument>-classpath</argument>
-						<classpath />
-						<argument>com.abiewska.jvm.App</argument>
-					</arguments>
+					<mainClass>com.abiewska.jvm.App</mainClass>
 				</configuration>
 			</plugin>
 			<plugin>
