@@ -4,38 +4,73 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Benchmark {
+	private static final Integer multiThread = 4;
+	private static final Integer oneThread = 1;
 
-	public class MyRun implements Runnable {
-
-		public void run() {
-			long start = System.currentTimeMillis();
-			int count = 0;
-			while (System.currentTimeMillis() - start < 30000) {
-				int[] arr = new int[100];
-				count++;
-			}
-			System.out.println("Wielkosc alokacji: " + count + " bajt."+" Watek: "
-					+ Thread.currentThread());
+	
+	//jeden watek liczba alokacji w okreslonym czasie
+	public static void oneThreadStaticSizeAlloc() {
+		for (int i = 0; i < oneThread; i++) {
+			MyRunStaticAlloc alloc = new MyRunStaticAlloc();
+			alloc.thread = i + 1;
+			new Thread(alloc).start();
 		}
-
+	}
+	
+	//jeden watek czas okreslonej liczby alokacji
+	public static void oneThreadStaticSizeTime() {
+		for (int i = 0; i < oneThread; i++) {
+			MyRunStaticTime alloc = new MyRunStaticTime();
+			alloc.thread = i + 1;
+			new Thread(alloc).start();
+		}
 	}
 
-	public Benchmark(int number) {
-		ExecutorService executorService;
-		switch (number) {
-		case 1:
-			executorService = Executors.newFixedThreadPool(1);
-			executorService.execute(new MyRun());
-			executorService.shutdown();
-			break;
+	public static void oneThreadDynamicSizeAlloc() {
+		for (int i = 0; i < oneThread; i++) {
+			MyRunDynamicAlloc alloc = new MyRunDynamicAlloc();
+			alloc.thread = i + 1;
+			new Thread(alloc).start();
+		}
+	}
+	
+	public static void oneThreadDynamicSizeTime() {
+		for (int i = 0; i < oneThread; i++) {
+			MyRunDynamicTime alloc = new MyRunDynamicTime();
+			alloc.thread = i + 1;
+			new Thread(alloc).start();
+		}
+	}
 
-		case 2:
-			executorService = Executors.newFixedThreadPool(4);
-			for (int i = 0; i < 4; i++) {
-				executorService.execute(new MyRun());
-			}
-			executorService.shutdown();
-			break;
+	public static void multiThreadStaticSizeAlloc() {
+		for (int i = 0; i < multiThread; i++) {
+			MyRunStaticAlloc alloc = new MyRunStaticAlloc();
+			alloc.thread = i + 1;
+			new Thread(alloc).start();
+		}
+	}
+	
+	public static void multiThreadStaticSizeTime() {
+		for (int i = 0; i < multiThread; i++) {
+			MyRunStaticTime alloc = new MyRunStaticTime();
+			alloc.thread = i + 1;
+			new Thread(alloc).start();
+		}
+	}
+
+	public static void multiThreadDynamicSizeAlloc() {
+		for (int i = 0; i < multiThread; i++) {
+			MyRunDynamicAlloc alloc = new MyRunDynamicAlloc();
+			alloc.thread = i + 1;
+			new Thread(alloc).start();
+		}
+	}
+
+	public static void multiThreadDynamicSizeTime() {
+		for (int i = 0; i < multiThread; i++) {
+			MyRunDynamicTime alloc = new MyRunDynamicTime();
+			alloc.thread = i + 1;
+			new Thread(alloc).start();
 		}
 	}
 }

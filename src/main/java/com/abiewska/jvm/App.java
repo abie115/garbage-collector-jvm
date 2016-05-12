@@ -2,7 +2,17 @@ package com.abiewska.jvm;
 
 public class App {
 	public static void main(String[] args) {
-		//Benchmark benchmark = new Benchmark(2);
-		Benchmark benchmark = new Benchmark(1);
+
+		Benchmark.oneThreadStaticSizeAlloc();
+		//Benchmark.oneThreadStaticSizeTime();
+		
+		//Benchmark.oneThreadDynamicSizeAlloc();
+		//Benchmark.oneThreadDynamicSizeTime();
+		
+		//Benchmark.multiThreadStaticSizeAlloc();
+		//Benchmark.multiThreadStaticSizeTime();
+		
+		//Benchmark.multiThreadDynamicSizeAlloc();
+		//Benchmark.multiThreadDynamicSizeTime();
 	}
 }

@@ -24,14 +24,10 @@
 				<configuration>
 					<executable>java</executable>
 					<arguments>
-						<!-- <argument>-XX:+UseParallelGC</argument> -->
-						<!-- <argument>-XX:+UseParallelOldGC</argument> -->
-						<argument>-XX:+UseSerialGC</argument>
+					  <argument>-XX:+UseConcMarkSweepGC</argument>
+						<!-- <argument>‐XX:+UseParallelOldGC</argument>-->
+						
 						<!-- <argument>-XX:+UseG1GC</argument> -->
-						<argument>-XX:+PrintGCTimeStamps</argument>
-						<argument>-XX:+PrintGCDateStamps</argument>
-						<argument>-XX:+PrintGCDetails</argument>
-						<argument>-Xloggc:logi.log</argument>
 						<argument>-classpath</argument>
 						<classpath />
 						<argument>com.abiewska.jvm.App</argument>
