@@ -1,7 +1,7 @@
 # garbage-collector-jvm
 Uruchamianie 
 ``
-mvn compile exec:exec
+./run.sh
 ``
 
 wyniki w result.pdf
